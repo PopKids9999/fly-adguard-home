@@ -17,7 +17,7 @@ You don't need neither Postgres nor Redis.
 But accept the creation of a dedicated IPv4 address as this is [required to be able to expose multiple ports](https://fly.io/docs/js/the-basics/listening-ports/#exposing-multiple-ports).
 > If you want your port other than 80/443 to be available on IPv4 you will need to allocate a dedicated IPv4 address.
 
-Or you run later:
+Or you can run later:
 ```commandline
 flyctl ips allocate-v4 -a adg-home
 ```
