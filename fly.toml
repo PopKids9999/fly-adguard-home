@@ -12,7 +12,7 @@ primary_region = "cdg"
   source = "adg_data"
   destination = "/data"
 
-## http/https admin panel access
+# http/https admin panel access, dns over https
 [http_service]
   internal_port = 3000
   auto_stop_machines = true
@@ -22,30 +22,28 @@ primary_region = "cdg"
 
 # plain dns
 [[services]]
-  protocol = "udp"
   internal_port = 53
-
+  protocol = "udp"
   [[services.ports]]
     port = 53
 
 [[services]]
-  protocol = "tcp"
   internal_port = 53
-
+  protocol = "tcp"
   [[services.ports]]
     port = 53
+
+# dns over tls
+[[services]]
+  internal_port = 853
+  protocol = "tcp"
+  [[services.ports]]
+    port = 853
+    handlers = ["tls"]
 
 # dns over quic
 [[services]]
-  protocol = "tcp"
-  internal_port = 853
-
-  [[services.ports]]
-    port = 853
-
-[[services]]
   protocol = "udp"
   internal_port = 853
-
   [[services.ports]]
     port = 853
